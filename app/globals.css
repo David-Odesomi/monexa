@@ -1,0 +1,214 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  /* Soft Blush Palette */
+  --color-soft-blush-50: #fcede9;
+  --color-soft-blush-100: #f8dbd3;
+  --color-soft-blush-200: #f1b7a7;
+  --color-soft-blush-300: #ea937b;
+  --color-soft-blush-400: #e36f4f;
+  --color-soft-blush-500: #dd4b22;
+  --color-soft-blush-600: #b03c1c;
+  --color-soft-blush-700: #842d15;
+  --color-soft-blush-800: #581e0e;
+  --color-soft-blush-900: #2c0f07;
+  --color-soft-blush-950: #1f0a05;
+
+  /* Almond Cream Palette */
+  --color-almond-cream-50: #f6f2ee;
+  --color-almond-cream-100: #ede6de;
+  --color-almond-cream-200: #dcccbc;
+  --color-almond-cream-300: #cab39b;
+  --color-almond-cream-400: #b99979;
+  --color-almond-cream-500: #a78058;
+  --color-almond-cream-600: #866646;
+  --color-almond-cream-700: #644d35;
+  --color-almond-cream-800: #433323;
+  --color-almond-cream-900: #211a12;
+  --color-almond-cream-950: #17120c;
+
+  /* Smoky Rose Palette */
+  --color-smoky-rose-50: #f4f1f1;
+  --color-smoky-rose-100: #e9e2e4;
+  --color-smoky-rose-200: #d3c5c8;
+  --color-smoky-rose-300: #bca9ad;
+  --color-smoky-rose-400: #a68c91;
+  --color-smoky-rose-500: #906f76;
+  --color-smoky-rose-600: #73595e;
+  --color-smoky-rose-700: #564347;
+  --color-smoky-rose-800: #3a2c2f;
+  --color-smoky-rose-900: #1d1618;
+  --color-smoky-rose-950: #141011;
+
+  /* Mauve Shadow Palette */
+  --color-mauve-shadow-50: #f4f1f2;
+  --color-mauve-shadow-100: #e9e2e6;
+  --color-mauve-shadow-200: #d2c6cd;
+  --color-mauve-shadow-300: #bca9b3;
+  --color-mauve-shadow-400: #a58d9a;
+  --color-mauve-shadow-500: #8f7081;
+  --color-mauve-shadow-600: #725a67;
+  --color-mauve-shadow-700: #56434d;
+  --color-mauve-shadow-800: #392d34;
+  --color-mauve-shadow-900: #1d161a;
+  --color-mauve-shadow-950: #141012;
+
+  --color-background: var(--color-almond-cream-50);
+  --color-foreground: var(--color-mauve-shadow-900);
+
+  --color-card: var(--color-almond-cream-50);
+  --color-card-foreground: var(--color-mauve-shadow-900);
+
+  --color-popover: var(--color-almond-cream-50);
+  --color-popover-foreground: var(--color-mauve-shadow-900);
+
+  --color-primary: var(--color-soft-blush-500);
+  --color-primary-foreground: white;
+
+  --color-secondary: var(--color-smoky-rose-100);
+  --color-secondary-foreground: var(--color-smoky-rose-900);
+
+  --color-muted: var(--color-almond-cream-200);
+  --color-muted-foreground: var(--color-mauve-shadow-500);
+
+  --color-accent: var(--color-smoky-rose-200);
+  --color-accent-foreground: var(--color-smoky-rose-900);
+
+  --color-destructive: oklch(0.577 0.245 27.325);
+  --color-destructive-foreground: oklch(0.985 0 0);
+
+  --color-border: var(--color-almond-cream-200);
+  --color-input: var(--color-almond-cream-200);
+  --color-ring: var(--color-soft-blush-500);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+}
+
+:root {
+  --radius: 0.625rem;
+}
+
+.dark {
+  --color-background: var(--color-mauve-shadow-950);
+  --color-foreground: var(--color-almond-cream-50);
+
+  --color-card: var(--color-mauve-shadow-900);
+  --color-card-foreground: var(--color-almond-cream-50);
+
+  --color-popover: var(--color-mauve-shadow-900);
+  --color-popover-foreground: var(--color-almond-cream-50);
+
+  --color-primary: var(--color-soft-blush-500);
+  --color-primary-foreground: white;
+
+  --color-secondary: var(--color-smoky-rose-800);
+  --color-secondary-foreground: var(--color-smoky-rose-50);
+
+  --color-muted: var(--color-mauve-shadow-800);
+  --color-muted-foreground: var(--color-mauve-shadow-400);
+
+  --color-accent: var(--color-smoky-rose-800);
+  --color-accent-foreground: var(--color-smoky-rose-50);
+
+  --color-destructive: oklch(0.704 0.191 22.216);
+  --color-destructive-foreground: oklch(0.985 0 0);
+
+  --color-border: var(--color-mauve-shadow-800);
+  --color-input: var(--color-mauve-shadow-800);
+  --color-ring: var(--color-soft-blush-400);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background-color: var(--color-primary); /* Orange background */
+  }
+}
+
+@layer utilities {
+  .animate-subtle-drift {
+    animation: drift 20s ease-in-out infinite;
+  }
+  .animate-subtle-pulse {
+    animation: soft-pulse 15s ease-in-out infinite;
+  }
+  .animate-breathe {
+    animation: breathe 25s ease-in-out infinite;
+  }
+  
+  @keyframes drift {
+    0%, 100% { transform: translate(0, 0); }
+    33% { transform: translate(30px, -30px); }
+    66% { transform: translate(-20px, 20px); }
+  }
+
+  @keyframes soft-pulse {
+    0%, 100% { opacity: 0.4; scale: 1; }
+    50% { opacity: 0.6; scale: 1.05; }
+  }
+
+  @keyframes breathe {
+    0%, 100% { scale: 1; opacity: 0.5; }
+    50% { scale: 1.1; opacity: 0.4; }
+  }
+}
+
+@layer components {
+  .btn-bubble {
+    --bubble-color: var(--primary);
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  /* Bubble pseudo-elements */
+  .btn-bubble::before,
+  .btn-bubble::after {
+    content: "";
+    width: 150%;
+    aspect-ratio: 1/1;
+    scale: 0;
+    transition: 1000ms cubic-bezier(0.76, 0, 0.24, 1);
+    background-color: var(--bubble-color);
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    translate: -50% -50%;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .btn-bubble::after {
+    top: 100%;
+    left: 100%;
+  }
+
+  .btn-bubble:hover::before,
+  .btn-bubble:hover::after {
+    scale: 1;
+  }
+
+  /* Ensure text is on top */
+  .btn-bubble>* {
+    position: relative;
+    z-index: 1;
+  }
+}
