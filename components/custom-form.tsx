@@ -1,6 +1,7 @@
 "use client"
 
 import React from 'react';
+import Link from 'next/link';
 
 export function CustomForm() {
   return (
@@ -35,7 +36,7 @@ export function CustomForm() {
 
       <button className="button-submit w-full h-12 bg-black text-white font-medium rounded-lg mt-4 hover:bg-gray-800 transition-colors">Sign In</button>
       
-      <p className="text-center text-sm text-black mt-4">Don't have an account? <span className="font-medium text-blue-500 cursor-pointer hover:underline">Sign Up</span></p>
+      <p className="text-center text-sm text-black mt-4">Don't have an account? <Link href="/login" className="font-medium text-blue-500 cursor-pointer hover:underline">Sign Up</Link></p>
       
       <div className="flex items-center gap-4 w-full my-4">
         <div className="h-px bg-gray-200 flex-1" />
