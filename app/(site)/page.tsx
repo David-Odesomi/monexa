@@ -12,9 +12,10 @@ export default function Home() {
       <section className="relative py-32 md:py-48 overflow-hidden bg-background">
         <HeroBackground />
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-8 text-black">
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-4 text-black">
             Master Your Money with <span className="text-primary">Monexa</span>
           </h1>
+          <p className="text-lg md:text-xl text-primary/70 font-medium mb-8">お金をマスターする</p>
           <p className="text-2xl md:text-3xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto mb-12">
             Simplifying finance for everyone. Track, save, and grow your wealth with the most intuitive platform on the market.
           </p>
@@ -36,7 +37,8 @@ export default function Home() {
       <section id="features" className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight mb-4 text-black">Everything you need to succeed</h2>
+            <h2 className="text-3xl font-bold tracking-tight mb-2 text-black">Everything you need to succeed</h2>
+            <p className="text-sm text-primary/60 font-medium mb-2">成功に必要なすべて</p>
             <p className="text-lg text-muted-foreground">
               Powerful tools designed to give you complete control over your financial life.
             </p>
@@ -83,7 +85,8 @@ export default function Home() {
       <section id="pricing" className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight mb-4 text-black">Simple, transparent pricing</h2>
+            <h2 className="text-3xl font-bold tracking-tight mb-2 text-black">Simple, transparent pricing</h2>
+            <p className="text-sm text-primary/60 font-medium mb-2">シンプルで透明な価格設定</p>
             <p className="text-lg text-muted-foreground">
               Choose the plan that fits your needs. No hidden fees, ever.
             </p>
@@ -123,7 +126,6 @@ export default function Home() {
                 </ul>
               </CardContent>
               <CardFooter>
-                // TODO: add the links of all the pricing to login page.
                 <Button className="w-full" variant="outline">Get Started</Button>
               </CardFooter>
             </Card>

@@ -1,5 +1,10 @@
+import { ChartRadarDots } from "@/components/chartRadar";
+import { Button } from "@/components/ui/button"
 export default function Dashboard(){
     return (
-        <h1>hello!</h1>
+        <>
+            <Button className="px-11 py-4 mb-10 font-bold">Log +</Button>
+            <ChartRadarDots />
+        </>
     )
 }
