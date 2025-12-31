@@ -14,14 +14,14 @@ export function Navbar() {
                         <Link href="/" className="relative transition-colors hover:text-foreground after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-foreground after:transition-all hover:after:w-full">
                             Home
                         </Link>
-                        <Link href="#pricing" className="relative transition-colors hover:text-foreground after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-foreground after:transition-all hover:after:w-full">
-                            Pricing
-                        </Link>
                         <Link href="#features" className="relative transition-colors hover:text-foreground after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-foreground after:transition-all hover:after:w-full">
                             Features
                         </Link>
+                        <Link href="#pricing" className="relative transition-colors hover:text-foreground after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-foreground after:transition-all hover:after:w-full">
+                            Pricing
+                        </Link>
                         <Link href="#faq" className="relative transition-colors hover:text-foreground after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-foreground after:transition-all hover:after:w-full">
-                            About Us
+                            FAQ
                         </Link>
                     </div>
                 </div>

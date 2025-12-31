@@ -4,21 +4,21 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  /* Soft Blush Palette */
+  /* Soft Blush Palette (Primary: #E85A3F) */
   --color-soft-blush-50: #fcede9;
   --color-soft-blush-100: #f8dbd3;
   --color-soft-blush-200: #f1b7a7;
   --color-soft-blush-300: #ea937b;
   --color-soft-blush-400: #e36f4f;
-  --color-soft-blush-500: #dd4b22;
+  --color-soft-blush-500: #E85A3F;
   --color-soft-blush-600: #b03c1c;
   --color-soft-blush-700: #842d15;
   --color-soft-blush-800: #581e0e;
   --color-soft-blush-900: #2c0f07;
   --color-soft-blush-950: #1f0a05;
 
-  /* Almond Cream Palette */
-  --color-almond-cream-50: #f6f2ee;
+  /* Almond Cream Palette (Background: #F5F3EF) */
+  --color-almond-cream-50: #F5F3EF;
   --color-almond-cream-100: #ede6de;
   --color-almond-cream-200: #dcccbc;
   --color-almond-cream-300: #cab39b;
@@ -138,7 +138,6 @@
 
   body {
     @apply bg-background text-foreground;
-    background-color: var(--color-primary); /* Orange background */
   }
 }
 
@@ -152,21 +151,42 @@
   .animate-breathe {
     animation: breathe 25s ease-in-out infinite;
   }
-  
+
   @keyframes drift {
-    0%, 100% { transform: translate(0, 0); }
-    33% { transform: translate(30px, -30px); }
-    66% { transform: translate(-20px, 20px); }
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    33% {
+      transform: translate(30px, -30px);
+    }
+    66% {
+      transform: translate(-20px, 20px);
+    }
   }
 
   @keyframes soft-pulse {
-    0%, 100% { opacity: 0.4; scale: 1; }
-    50% { opacity: 0.6; scale: 1.05; }
+    0%,
+    100% {
+      opacity: 0.4;
+      scale: 1;
+    }
+    50% {
+      opacity: 0.6;
+      scale: 1.05;
+    }
   }
 
   @keyframes breathe {
-    0%, 100% { scale: 1; opacity: 0.5; }
-    50% { scale: 1.1; opacity: 0.4; }
+    0%,
+    100% {
+      scale: 1;
+      opacity: 0.5;
+    }
+    50% {
+      scale: 1.1;
+      opacity: 0.4;
+    }
   }
 }
 
@@ -207,8 +227,226 @@
   }
 
   /* Ensure text is on top */
-  .btn-bubble>* {
+  .btn-bubble > * {
     position: relative;
     z-index: 1;
   }
+
+  /* Transaction Type Button Animations */
+  .transaction-btn {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    transition: color 0.5s;
+    z-index: 1;
+    border: 2px solid;
+  }
+
+  .transaction-btn > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Override btn-bubble styles for transaction buttons */
+  .transaction-btn.btn-bubble::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    height: 150px !important;
+    width: 200px !important;
+    border-radius: 50%;
+    top: 100% !important;
+    left: 100% !important;
+    transition: all 0.7s !important;
+    pointer-events: none;
+    scale: 1 !important;
+    translate: none !important;
+    aspect-ratio: auto !important;
+  }
+
+  .transaction-btn.btn-bubble.active::before {
+    top: -30px !important;
+    left: -30px !important;
+    scale: 1 !important;
+  }
+
+  .transaction-btn-income.btn-bubble.active::before {
+    background: #22c55e !important;
+  }
+
+  .transaction-btn-expense.btn-bubble.active::before {
+    background: #ef4444 !important;
+  }
+
+  .transaction-btn.btn-bubble::after {
+    display: none;
+  }
+
+  .transaction-btn::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    height: 150px;
+    width: 200px;
+    border-radius: 50%;
+    top: 100%;
+    left: 100%;
+    transition: all 0.7s;
+    pointer-events: none;
+  }
+
+  .transaction-btn:hover:not(.active) {
+    color: #fff;
+  }
+
+  .transaction-btn.active {
+    color: inherit;
+  }
+
+  .transaction-btn:hover:not(.active)::before {
+    top: -30px;
+    left: -30px;
+  }
+
+  .transaction-btn.active::before {
+    top: -30px !important;
+    left: -30px !important;
+  }
+
+  .transaction-btn:active::before {
+    transition: background 0s;
+  }
+
+  /* Income button - Green */
+  .transaction-btn-income {
+    --color: #22c55e; /* green-500 */
+    border-color: var(--color);
+    color: var(--color);
+  }
+
+  .transaction-btn-income::before {
+    background: var(--color);
+  }
+
+  .transaction-btn-income:active::before {
+    background: #16a34a; /* green-600 */
+  }
+
+  .transaction-btn-income.active {
+    border-color: var(--color);
+  }
+
+  .transaction-btn-income.active::before {
+    top: -30px !important;
+    left: -30px !important;
+    background: #22c55e !important; /* green-500 */
+  }
+
+  /* Expense button - Red */
+  .transaction-btn-expense {
+    --color: #ef4444; /* red-500 */
+    border-color: var(--color);
+    color: var(--color);
+  }
+
+  .transaction-btn-expense::before {
+    background: var(--color);
+  }
+
+  .transaction-btn-expense:active::before {
+    background: #dc2626; /* red-600 */
+  }
+
+  .transaction-btn-expense.active {
+    border-color: var(--color);
+  }
+
+  .transaction-btn-expense.active::before {
+    top: -30px !important;
+    left: -30px !important;
+    background: #ef4444 !important; /* red-500 */
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg;
+  }
+  
+  .glass-heavy {
+    @apply bg-white/20 backdrop-blur-xl border border-white/30 shadow-xl;
+  }
+  
+  .glass-card {
+    @apply bg-card/60 backdrop-blur-md border border-white/10 shadow-sm hover:shadow-md transition-all duration-300;
+  }
+  
+  .glass-panel {
+     background: rgba(255, 255, 255, 0.05);
+     backdrop-filter: blur(16px);
+     -webkit-backdrop-filter: blur(16px);
+     border: 1px solid rgba(255, 255, 255, 0.1);
+     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-orange-400;
+  }
+  
+  .text-gradient-blue {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500;
+  }
+  
+  .text-gradient-premium {
+      @apply bg-clip-text text-transparent bg-gradient-to-r from-[#E85A3F] via-[#F97316] to-[#d946ef];
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 10px rgba(232, 90, 63, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(232, 90, 63, 0.6); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes count-up {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.6s ease-out forwards;
+}
+
+/* Custom Scrollbar for Dashboard */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 3px;
+  opacity: 0.5;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-soft-blush-600);
 }

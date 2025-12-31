@@ -19,6 +19,7 @@ const buttonVariants = cva(
         ghost:
           "hover:bg-accent text-black hover:text-black dark:hover:bg-accent/50 btn-bubble [--bubble-color:var(--color-primary)]",
         link: "text-primary underline-offset-4 hover:underline",
+        income: "bg-primary text-black hover:bg-primary/90 btn-bubble [--bubble-color:var(--color-primary-foreground)] hover:text-black"
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
